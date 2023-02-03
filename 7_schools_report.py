@@ -1,3 +1,8 @@
+# Author:     Shepard Berry
+# Class:      MIS-4322
+# Due:        2/8/2023
+# Assignment: Dictionaries
+
 """
 Process the JSON file named school_data.json. Display only those schools 
 that are part of the ACC, Big 12, Big Ten, Pac-12 and SEC divisons. This
@@ -20,7 +25,7 @@ Display report for all universities that have a total price for in-state student
 
 import json
 
-def generateReport(school):
+def generate_report(school):
     return (f'{school["instnm"]}\n'
         f'\tEnrolled: {school["Total  enrollment (DRVEF2020)"]}\n'
         f'\tMale Grad Rate: {school["Graduation rate  men (DRVGR2020)"]}%\n'
@@ -41,7 +46,7 @@ def main():
         key = "Graduation rate  women (DRVGR2020)"
         for school in valid_schools:
             if school[key] > 50:
-                print(generateReport(school))
+                print(generate_report(school))
 
         print("\n")
 
@@ -51,7 +56,7 @@ def main():
         for school in valid_schools:
 
             if school[key] and school[key] > 50000:
-                print(generateReport(school))
+                print(generate_report(school))
 
 if __name__ == "__main__":
     main()

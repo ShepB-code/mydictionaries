@@ -1,3 +1,8 @@
+# Author:     Shepard Berry
+# Class:      MIS-4322
+# Due:        2/8/2023
+# Assignment: Dictionaries
+
 '''
 We have a dictionary of produce with their per unit cost, the number of units sold and the total. We want to verify that the total is accurate
 since it was manually entered. Print out the details of any produce that has in inaccurate total. Print both the stated total from the dictionary

@@ -1,3 +1,8 @@
+# Author:     Shepard Berry
+# Class:      MIS-4322
+# Due:        2/8/2023
+# Assignment: Dictionaries
+
 '''
 the eq_data file is a json file that contains detailed information about
 earthquakes around the world for a period of a month.
@@ -35,3 +40,28 @@ Latitude: 14.7628
 
 
 import json
+
+def main():
+    with open("eq_data.json", 'r') as f:
+        data = json.load(f)
+        
+        # get number of earthquakes
+        earthquakes = [feature for feature in data['features'] if feature['properties']['type'] == 'earthquake']
+
+        print(f'Number of Earthquakes: {len(earthquakes)}\n\n')
+        
+        eq_dict = {}
+        eq_dict['features'] = [eq for eq in earthquakes if eq['properties']['mag'] > 6]
+        print(f'eq_dict: {eq_dict}\n\n')
+
+        for eq in eq_dict['features']:
+            print(f'Location: {eq["properties"]["place"]}\n'
+                  f'Magnitude: {eq["properties"]["mag"]}\n'
+                  f'Longitude: {eq["geometry"]["coordinates"][0]}\n'
+                  f'Latitude: {eq["geometry"]["coordinates"][1]}\n')
+
+
+
+
+if __name__ == "__main__":
+    main()

@@ -1,3 +1,9 @@
+# Author:     Shepard Berry
+# Class:      MIS-4322
+# Due:        2/8/2023
+# Assignment: Dictionaries
+
+
 # Below is a dictionary that contains information about real estate space for
 # a doctor's office. Using the dictionary, create a csv file that has details
 # for each space represented as rows. Name your file 'retail_space.csv.
@@ -15,7 +21,8 @@ room-number,use,sq-ft,price
 
 '''
 
-
+import pandas as pandas
+from pandas import DataFrame
 
 
 datastore = { "medical":[
@@ -47,3 +54,22 @@ datastore = { "medical":[
 
       ]
 }
+
+def main():
+    data = {"room-number":[], "use":[],"sq-ft":[], "price":[]}
+    for exam in datastore['medical']:
+        data["room-number"].append(exam["room-number"])
+        data["use"].append(exam["use"])
+        data["sq-ft"].append(exam["sq-ft"])
+        data["price"].append(exam["price"])
+
+    df = DataFrame(data)
+    df.to_csv('retail_space.csv', index=False)
+
+        
+
+
+
+    
+if __name__ == "__main__":
+    main()
