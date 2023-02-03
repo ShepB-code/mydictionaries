@@ -207,3 +207,9 @@ ProduceDictionary={
     }
 }
 
+# k : str
+# v : dict
+for k, v in ProduceDictionary.items():
+    calc_tot = round(v['cost'] * v['amt_sold'], 2)
+    if calc_tot != v['total']:
+        print(f'Produce item "{k}" was innacurately stated with a total of ${v["total"]} and actual total of ${calc_tot}') 

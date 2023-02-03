@@ -1,15 +1,21 @@
+# Author:     Shepard Berry
+# Class:      MIS-4322
+# Due:        2/8/2023
+# Assignment: Dictionaries
+
+import random
 # This program uses a dictionary as a deck of cards.
 
 def main():
     # Create a deck of cards.
-   
-
+    deck = create_deck()
     # Get the number of cards to deal.
     num_cards = int(input('How many cards should I deal? '))
 
-
-
     # Deal the cards.
+
+    deal_cards(deck, num_cards)
+
 
 
     
@@ -44,6 +50,7 @@ def create_deck():
             '10 of Diamonds':10, 'Jack of Diamonds':10,
             'Queen of Diamonds':10, 'King of Diamonds': 10}
 
+    return deck
     # Return the deck.
 
 
@@ -54,26 +61,31 @@ def create_deck():
 
 def deal_cards(deck, number):
     # Initialize an accumulator for the hand value.
-
     
+    hand_value = 0
     
     # DATA VALIDATION
     # Make sure the number of cards to deal is not
     # greater than the number of cards in the deck (52).
 
-    
-    
+    if number > 52:
+        print("Trying to deal too many cards")
+        return
 
     # Deal the cards and accumulate their values.
     
+    for i in range(number):
+        card = random.choice(list(deck.keys()))
+        print(f'Drew {card} with a value of {deck[card]}')
+        hand_value += deck.pop(card)
 
-
-    
 
     # Display the value of the hand.
 
+    print(f'Value: {hand_value}')
     
     
 
 # Call the main function.
-main()
+if __name__ == "__main__":
+    main()

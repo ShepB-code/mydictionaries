@@ -1,3 +1,8 @@
+# Author:     Shepard Berry
+# Class:      MIS-4322
+# Due:        2/8/2023
+# Assignment: Dictionaries
+
 import random
 
 phonebook = {'Chris':'555−1111',
