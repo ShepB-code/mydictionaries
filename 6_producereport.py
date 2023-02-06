@@ -53,7 +53,7 @@ ProduceDictionary={
     'Celery': {
         'cost': 3.07,
         'amt_sold': 18.5,
-        'total': 56.8
+        'total': 56.79
     },
     'Spinach': {
         'cost': 4.12,
@@ -198,7 +198,7 @@ ProduceDictionary={
     'Brussels sprouts': {
         'cost': 1.65,
         'amt_sold': 22.9,
-        'total': 37.79
+        'total': 37.78
     },
     'Kale': {
         'cost': 5.02,
@@ -217,4 +217,4 @@ ProduceDictionary={
 for k, v in ProduceDictionary.items():
     calc_tot = round(v['cost'] * v['amt_sold'], 2)
     if calc_tot != v['total']:
-        print(f'Produce item "{k}" was innacurately stated with a total of ${v["total"]} and actual total of ${calc_tot}') 
+        print(f'Produce Name: {k}\nCalculated Total: ${calc_tot:,.2f}\nStated Total: ${v["total"]:,.2f}\n\n') 
