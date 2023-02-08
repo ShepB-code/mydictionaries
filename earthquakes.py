@@ -42,14 +42,14 @@ import json
 def main():
     with open("eq_data.json", 'r') as f:
         data = json.load(f)
-        
+
         # get number of earthquakes
         earthquakes = [feature for feature in data['features'] if feature['properties']['type'] == 'earthquake']
 
         print(f'Number of Earthquakes: {len(earthquakes)}\n\n')
-        
+
         eq_dict = {'features' : []}
-        
+
         for eq in earthquakes:
             if eq['properties']['mag'] > 6:
                 eq_dict['features'].append({
