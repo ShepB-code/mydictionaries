@@ -43,29 +43,27 @@ def main():
     with open("eq_data.json", 'r') as f:
         data = json.load(f)
 
-        # get number of earthquakes
+        # filter features by earthquakes
         earthquakes = [feature for feature in data['features'] if feature['properties']['type'] == 'earthquake']
-
+    
         print(f'Number of Earthquakes: {len(earthquakes)}\n\n')
 
-        eq_dict = {'features' : []}
-
+        eq_dict = {}
         for eq in earthquakes:
             if eq['properties']['mag'] > 6:
-                eq_dict['features'].append({
-                    'location' : eq['properties']['place'],
+                eq_dict[eq['properties']['place']] = {
                     'magnitude' : eq['properties']['mag'],
                     'longitude' : eq['geometry']['coordinates'][0],
                     'latitude' : eq['geometry']['coordinates'][1]
-                })
+                }
 
         print(f'eq_dict: {eq_dict}\n\n')
 
-        for eq in eq_dict['features']:
-            print(f'Location: {eq["location"]}\n'
-                  f'Magnitude: {eq["magnitude"]}\n'
-                  f'Longitude: {eq["longitude"]}\n'
-                  f'Latitude: {eq["latitude"]}\n')
+        for k, v in eq_dict.items():
+            print(f'Location: {k}\n'
+                  f'Magnitude: {v["magnitude"]}\n'
+                  f'Longitude: {v["longitude"]}\n'
+                  f'Latitude: {v["latitude"]}\n')
 
 
 
